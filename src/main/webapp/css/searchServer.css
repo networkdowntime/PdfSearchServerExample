@@ -1,0 +1,17 @@
+.highlight {
+	background-color: yellow;
+}
+
+.pdf-div {
+	padding-left: 12px;
+	padding-bottom: 12px;
+}
+
+.search-div {
+	padding-left: 12px;
+	padding-bottom: 12px;
+}
+
+.results-div {
+	max-width: 800px;
+}

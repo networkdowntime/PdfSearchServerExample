@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/searchServer.js"></script>
+<link href="jquery-ui/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+<script src="jquery-ui/jquery-ui-1.9.2.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/searchServer.css">
+
+<title>Embedded In Memory Search Demo</title>
+</head>
+<body>
+	<div>
+		<h2>PDF Search</h2>
+	</div>
+	<div class="pdf-div">
+		<div>
+			PDF to Index: <input id="pdf-input" size="80" type="text"
+				value="http://localhost:8080/AliceInWonderland.pdf" />
+			<button id="pdf-button">Index PDF</button>
+		</div>
+		<div id="pdf-status"></div>
+	</div>
+	<div class="search-div">
+		<input id="search-input" size="40" type="text" placeholder="Search tems here" />
+		<button id="search-button">Search</button>
+	</div>
+	<div id="results-outer" class="results-div">
+		<div id="results"></div>
+	</div>
+
+</body>
+</html>
