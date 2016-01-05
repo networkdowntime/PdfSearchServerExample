@@ -44,6 +44,8 @@ function getPdfUrl() {
 	});    	
 }
 
+var lastCompletions = [];
+
 $(document).ready(function() {
 	getPdfUrl();
 	getPdfTitle(true);
@@ -61,7 +63,9 @@ $(document).ready(function() {
 	      		$("#results").append("<h3>" + (id + 1) + ": Page: " + result.page + " Search Weight: " + result.weight + "</h3><div class='result-text'>" + result.result + "</div>");
 			});
 	    	$( "#results" ).accordion();
-	    	highlight_words($("#search-input").val(), ".result-text");
+	    	$(lastCompletions).each(function(key, value) {
+		    	highlight_words(value, ".result-text");
+	    	});
 		});    	
 	}
 
@@ -80,9 +84,11 @@ $(document).ready(function() {
 
  	$("#search-input").autocomplete({
     	source : function (request, response) {
+    		lastCompletions = [];
     		$.get("/searchEngine/completions", { query: $("#search-input").val() }, function (data) {
                 var out = data.results;
                 response($.each(out, function(key, value) {
+                	lastCompletions.push(value);
                     return {
                         label: key,
                         value: value
