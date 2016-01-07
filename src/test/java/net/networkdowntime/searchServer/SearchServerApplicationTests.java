@@ -1,3 +1,4 @@
+package net.networkdowntime.searchServer;
 //package net.networkdowntime.rewardStyle;
 //
 //import org.junit.Test;
