@@ -10,6 +10,7 @@ import org.apache.pdfbox.util.PDFTextStripper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import net.networkdowntime.search.SearchResultType;
 import net.networkdowntime.searchServer.PdfDocumentService;
 import net.networkdowntime.searchServer.SearchService;
 import net.networkdowntime.searchServer.dto.SearchResponse;
@@ -48,7 +49,7 @@ public class PdfDocumentServiceImpl implements PdfDocumentService {
 
 	public SearchResponse attachPageTextToSearchResponse(SearchResponse response) {
 		for (SearchResult result : response.getResults()) {
-			if ("Long".equals(result.getType())) {
+			if (SearchResultType.LONG.toString().equals(result.getType())) {
 				int page = Integer.parseInt(result.getResult());
 				textStripper.setStartPage(page);
 				textStripper.setEndPage(page);
